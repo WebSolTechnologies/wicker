@@ -41,3 +41,25 @@ router.post('/api/signup', function(req, res){
     });
   });
 });
+
+
+router.post('/api/signin', function(req, res){
+  var username = req.body.username,
+      password = req.body.password;
+
+  if (!username || !password)
+    return res.json({signedIn: false, message: "no username or password!"});
+
+  if (users.child(username).once("value", function(snapshot){
+    if (snapshot.exists() || snapshot.child("hashPassword") !==  hashPassword(password))
+      return res.json({signedIn: false, message: "wrong username & password!"});
+
+    var user = snapshot.exportVal();
+
+    req.session.user = user;
+    res.json({
+      signedIn: true,
+      user: user
+    })
+  });
+});
