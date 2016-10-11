@@ -9,6 +9,7 @@
   "author": "Junaid",
   "license": "ISC",
   "devDependencies": {
+    "browserify": "^13.1.0",
     "express": "^4.14.0"
   },
   "dependencies": {
