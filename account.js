@@ -63,3 +63,12 @@ router.post('/api/signin', function(req, res){
     })
   });
 });
+
+
+router.post("/api/signout", function(req, res){
+  delete req.session.user;
+  res.json({
+    signedIn: false,
+    message: "You have been signed out!"
+  })
+});
