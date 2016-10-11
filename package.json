@@ -4,7 +4,7 @@
   "description": "A live collaborative wiki",
   "main": "server.js",
   "scripts": {
-    "build:js": "browserify ./src/app.js -t [ babelify --optional es7.classProperties ] --outfile public/all.js",
+    "build:js": "browserify ./src/app.js -t [ babelify ] --outfile public/all.js",
     "build": "watch 'npm run build:js' ./src"
   },
   "author": "Junaid",
