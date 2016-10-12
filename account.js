@@ -37,7 +37,7 @@ router.post('/api/signup', function(req, res){
     req.session.user = userObj;
     res.json({
       signedIn: true,
-      user: userObj;
+      user: userObj
     });
   });
 });
@@ -61,7 +61,7 @@ router.post('/api/signin', function(req, res){
       signedIn: true,
       user: user
     })
-  });
+  })
 });
 
 
